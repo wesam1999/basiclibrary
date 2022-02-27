@@ -3,8 +3,58 @@
  */
 package basiclibrary;
 
+import java.util.ArrayList;
+
 public class Library {
     public boolean someLibraryMethod() {
         return true;
+    }
+    public static ArrayList<Integer> roll(int y) {
+        ArrayList<Integer> roll = new ArrayList<Integer>();
+        for (int i = 0; i < y; i++) {
+            int die1 = (int) (Math.random() * 6) + 1;
+            roll.add(die1);
+
+        }
+        return roll;
+    }
+
+    public static boolean contiansDuplicates(int[] x) {
+
+
+        for (int i = 0; i < x.length; i++) {
+            for (int j = i + 1; j < x.length; j++) {
+                if (x[i] == x[j]) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+
+        }
+        return false;
+    }
+    public  static  int averageArr (int[] arr){
+
+        int sum = 0;
+        for( int i : arr) {
+            sum += i;
+        }
+
+
+        return  sum/arr.length;
+    }
+    public  static  int twoArrayAver(int[][] arr){
+        int perimter = 0;
+        for (int i = 0; i < arr[0].length; i++) {
+            perimter += arr[0][i] + arr[arr.length - 1][i];
+        }
+        for (int r = 1; r < arr.length - 1; r++) {
+            perimter += arr[r][0] + arr[r][arr[0].length - 1];
+        }
+        int length=arr[0].length*arr.length;
+        return perimter/length;
+
     }
 }
