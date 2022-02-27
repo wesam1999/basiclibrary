@@ -4,11 +4,14 @@
 package basiclibrary;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Library {
     public boolean someLibraryMethod() {
         return true;
     }
+
     public static ArrayList<Integer> roll(int y) {
         ArrayList<Integer> roll = new ArrayList<Integer>();
         for (int i = 0; i < y; i++) {
@@ -35,17 +38,19 @@ public class Library {
         }
         return false;
     }
-    public  static  int averageArr (int[] arr){
+
+    public static int averageArr(int[] arr) {
 
         int sum = 0;
-        for( int i : arr) {
+        for (int i : arr) {
             sum += i;
         }
 
 
-        return  sum/arr.length;
+        return sum / arr.length;
     }
-    public  static  int twoArrayAver(int[][] arr){
+
+    public static int twoArrayAver(int[][] arr) {
         int perimter = 0;
         for (int i = 0; i < arr[0].length; i++) {
             perimter += arr[0][i] + arr[arr.length - 1][i];
@@ -53,8 +58,62 @@ public class Library {
         for (int r = 1; r < arr.length - 1; r++) {
             perimter += arr[r][0] + arr[r][arr[0].length - 1];
         }
-        int length=arr[0].length*arr.length;
-        return perimter/length;
+        int length = arr[0].length * arr.length;
+        return perimter / length;
+
+    }
+
+    public static void tally(String votes[]) {
+        // Insert all votes in a hashmap
+        Map<String, Integer> map =
+                new HashMap<String, Integer>();
+        for (String str : votes) {
+            if (map.keySet().contains(str))
+                map.put(str, map.get(str) + 1);
+            else
+                map.put(str, 1);
+        }
+
+        // Traverse through map to find the candidate
+        // with maximum votes.
+        int maxValueInMap = 0;
+        String winner = "";
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            String key = entry.getKey();
+            Integer val = entry.getValue();
+            if (val > maxValueInMap) {
+                maxValueInMap = val;
+                winner = key;
+            }
+
+            // If there is a tie, pick lexicographically
+            // smaller.
+            else if (val == maxValueInMap &&
+                    winner.compareTo(key) > 0)
+                winner = key;
+        }
+        System.out.println(winner);
+
+    }
+
+    public static void getMaxValue(int[] numbers) {
+        int maxValue = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > maxValue) {
+                maxValue = numbers[i];
+            }
+            System.out.println("High:" + maxValue);
+
+        }
+        int minValue = numbers[0];
+        for (int j = 1; j < numbers.length; j++) {
+            if (numbers[j] < minValue) {
+                minValue = numbers[j];
+            }
+        }
+        System.out.println("Low: " + minValue);
+        
+
 
     }
 }
