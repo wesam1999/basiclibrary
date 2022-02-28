@@ -8,11 +8,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Library {
-    public boolean someLibraryMethod() {
-        return true;
+    public static void main(String[] args) {
+
     }
 
-    public static ArrayList<Integer> roll(int y) {
+    public  ArrayList<Integer> roll(int y) {
         ArrayList<Integer> roll = new ArrayList<Integer>();
         for (int i = 0; i < y; i++) {
             int die1 = (int) (Math.random() * 6) + 1;
@@ -22,7 +22,7 @@ public class Library {
         return roll;
     }
 
-    public static boolean contiansDuplicates(int[] x) {
+    public  boolean contiansDuplicates(int[] x) {
 
 
         for (int i = 0; i < x.length; i++) {
@@ -39,7 +39,7 @@ public class Library {
         return false;
     }
 
-    public static int averageArr(int[] arr) {
+    public  int averageArr(int[] arr) {
 
         int sum = 0;
         for (int i : arr) {
@@ -50,7 +50,7 @@ public class Library {
         return sum / arr.length;
     }
 
-    public static int twoArrayAver(int[][] arr) {
+    public  int twoArrayAver(int[][] arr) {
         int perimter = 0;
         for (int i = 0; i < arr[0].length; i++) {
             perimter += arr[0][i] + arr[arr.length - 1][i];
@@ -63,7 +63,7 @@ public class Library {
 
     }
 
-    public static void tally(String votes[]) {
+    public  void tally(String votes[]) {
         // Insert all votes in a hashmap
         Map<String, Integer> map =
                 new HashMap<String, Integer>();
@@ -116,4 +116,6 @@ public class Library {
 
 
     }
+
+
 }

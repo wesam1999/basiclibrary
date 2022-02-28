@@ -7,8 +7,31 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
-    @Test void someLibraryMethodReturnsTrue() {
-        Library classUnderTest = new Library();
-        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
+
+    @Test void contiansDuplicatesTest(){
+        Library library=new Library();
+        int array[]={1,2,3,1,4,5};
+        boolean y=library.contiansDuplicates(array);
+assertTrue(true, String.valueOf(y));
+
+
     }
+    @Test void rollTest(){
+        Library library=new Library();
+
+//    methods I do not Know how to test it  and what is the  result  for this methods Because the result is random array
+    }
+    @Test void averageArrTest(){
+        Library library=new Library();
+        int array[]={1,2,3,1,4,5};
+       int y=library.averageArr(array);
+       assertEquals(2,y);
+    }
+   @Test void twoArrayAver(){
+       Library library=new Library();
+       int array[][]={{1,2,3,1,4,5},{1,4,6,8,5,7}};
+       int y=library.twoArrayAver(array);
+       assertEquals(3,y);
+
+   }
 }
